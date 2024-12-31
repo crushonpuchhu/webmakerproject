@@ -15,24 +15,22 @@ import {
   Button,
 } from "@nextui-org/react";
 import Switchh from "../switch/Switch";
+import { useNavigate } from "react-router-dom";
 
 
 
 export default function Topbar({ setdark, isdark }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+   const home = useNavigate();
+   const services = useNavigate();
 
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    "About",
+    "Services",
+    "Contact "
   ];
+
+  
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
@@ -43,20 +41,15 @@ export default function Topbar({ setdark, isdark }) {
         />
         <NavbarBrand>
           <TiPointOfInterest size={"2em"} />
-          <p className="font-bold text-inherit">Webmaker</p>
+          <p className="font-bold text-inherit">WebMaker</p>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <Tabs
-          key={"underlined"}
-          aria-label="Tabs variants"
-          variant={"underlined"}
-        >
-          <Tab key="About" title="About" />
-          <Tab key="Services" title="Services" />
-          <Tab key="Contact" title="Contact" />
-        </Tabs>
+      <NavbarContent className="hidden cursor-pointer sm:flex gap-4" justify="center">
+      
+        <div onClick={()=>{home("/home")}}>About</div>
+        <div onClick={()=>{services('/services')}}>Services</div>
+        <div>Contact</div>
       </NavbarContent>
 
       <NavbarContent>
