@@ -1,5 +1,5 @@
 import {Card, CardHeader, CardFooter, Image, Button} from "@nextui-org/react";
-
+import { TiPointOfInterest } from "react-icons/ti";
 export default function About() {
   return (
     <div className="max-w-[900px]  gap-2 grid grid-cols-12 grid-rows-2 px-8">
@@ -56,7 +56,7 @@ export default function About() {
             <p className="text-black text-tiny">Get notified.</p>
           </div>
           <Button className="text-tiny" color="primary" radius="full" size="sm">
-            Notify Me
+            contact us
           </Button>
         </CardFooter>
       </Card>
@@ -73,19 +73,13 @@ export default function About() {
         />
         <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
           <div className="flex flex-grow gap-2 items-center">
-            <Image
-              alt="Breathing app icon"
-              className="rounded-full w-10 h-11 bg-black"
-              src="https://nextui.org/images/breathing-app-icon.jpeg"
-            />
+            <TiPointOfInterest size={'2em'}/>
             <div className="flex flex-col">
-              <p className="text-tiny text-white/60">Breathing App</p>
-              <p className="text-tiny text-white/60">Get a good night&#39;s sleep.</p>
+              <p className="text-tiny text-white/60">24 x 7</p>
+              <p className="text-tiny text-white/60">Support Available.</p>
             </div>
           </div>
-          <Button radius="full" size="sm">
-            Get App
-          </Button>
+        
         </CardFooter>
       </Card>
     </div>
