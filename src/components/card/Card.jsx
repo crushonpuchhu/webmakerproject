@@ -42,7 +42,7 @@ export default function Cardd() {
           <Link
             isExternal
             showAnchorIcon
-            href="https://wa.me/7488453170"
+            href="https://wa.me/7488453170?text= I want website"
           ></Link>
         </Button>
       </CardFooter>
