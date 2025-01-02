@@ -13,11 +13,12 @@ import { services } from "../../asset/serivecsdata";
 export default function Services() {
   return (
     <>
-      <div id="abc1" className="  text-foreground p-8 flex flex-wrap justify-start max-lg:justify-center gap-10 items-center  ">
+      <div id="abc1" className="  text-foreground p-8  grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))]   gap-10   ">
         {services.map((e, i) => {
           return (
             <>
               
+              <div className=" w-[100%] h-[100%] flex justify-center items-center">
               <Card className="py-4 w-[300px] h-[300px]">
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                   <p className="text-tiny uppercase font-bold">{e.title}</p>
@@ -34,6 +35,7 @@ export default function Services() {
                   />
                 </CardBody>
               </Card>
+              </div>
             </>
           );
         })}

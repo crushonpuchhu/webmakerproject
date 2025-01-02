@@ -23,6 +23,7 @@ export default function Topbar({ setdark, isdark }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
    const home = useNavigate();
    const services = useNavigate();
+   const contact = useNavigate();
 
   const menuItems = [
     "About",
@@ -49,7 +50,7 @@ export default function Topbar({ setdark, isdark }) {
       
         <div onClick={()=>{home("/home")}}>About</div>
         <div onClick={()=>{services('/services')}}>Services</div>
-        <div>Contact</div>
+        <div onClick={()=>{contact("/contact")}}>Contact</div>
       </NavbarContent>
 
       <NavbarContent>

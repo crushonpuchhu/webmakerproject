@@ -5,6 +5,7 @@ import Home from "./pages/main/Home";
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import Services from "./pages/services/Services";
+import Contact from "./pages/contact/Contact";
 function App() {
 const [isdark,Setisdark]=useState(!false);
 
@@ -17,6 +18,7 @@ const [isdark,Setisdark]=useState(!false);
            <Route path="/" element={<Home/>} />
            <Route path="/home" element={<Home/>} />
            <Route path="/services" element={<Services/>} />
+           <Route path="/contact" element={<Contact/>} />
 
           </Routes>
           
