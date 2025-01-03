@@ -15,48 +15,97 @@ import {
   Button,
 } from "@nextui-org/react";
 import Switchh from "../switch/Switch";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@nextui-org/react";
+
 import { useNavigate } from "react-router-dom";
+import { TfiLineDouble } from "react-icons/tfi";
 
-
+import handleScrollToTop from "../../asset/scrolltop";
 
 export default function Topbar({ setdark, isdark }) {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-   const home = useNavigate();
-   const services = useNavigate();
-   const contact = useNavigate();
-
-  const menuItems = [
-    "About",
-    "Services",
-    "Contact "
-  ];
-
-  
+  const home = useNavigate();
+  const services = useNavigate();
+  const contact = useNavigate();
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar>
       <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
+        <Dropdown backdrop="blur">
+          <DropdownTrigger>
+            <TfiLineDouble className="sm:hidden" size={"2em"} />
+          </DropdownTrigger>
+          <DropdownMenu aria-label="Static Actions">
+            <DropdownItem
+              onPress={() => {
+                home("/home");
+                handleScrollToTop();
+              }}
+              key="about"
+            >
+              About
+            </DropdownItem>
+            <DropdownItem
+              onPress={() => {
+                services("/services");
+                handleScrollToTop();
+              }}
+              key="services"
+            >
+              Services
+            </DropdownItem>
+            <DropdownItem
+              onPress={() => {
+                contact("/contact");
+                handleScrollToTop();
+              }}
+              key="contact"
+            >
+              Contact
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
         <NavbarBrand>
           <TiPointOfInterest size={"2em"} />
           <p className="font-bold text-inherit">WebMaker</p>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden cursor-pointer sm:flex gap-4" justify="center">
-      
-        <div onClick={()=>{home("/home")}}>About</div>
-        <div onClick={()=>{services('/services')}}>Services</div>
-        <div onClick={()=>{contact("/contact")}}>Contact</div>
+      <NavbarContent
+        className="hidden cursor-pointer sm:flex gap-4"
+        justify="center"
+      >
+        <div
+          onClick={() => {
+            home("/home");
+          }}
+        >
+          About
+        </div>
+        <div
+          onClick={() => {
+            services("/services");
+          }}
+        >
+          Services
+        </div>
+        <div
+          onClick={() => {
+            contact("/contact");
+          }}
+        >
+          Contact
+        </div>
       </NavbarContent>
 
       <NavbarContent>
         <NavbarContent justify="end">
           <div
-           className=" cursor-pointer"
+            className=" cursor-pointer"
             onClick={() => {
               setdark((p) => !p);
             }}
@@ -65,26 +114,6 @@ export default function Topbar({ setdark, isdark }) {
           </div>
         </NavbarContent>
       </NavbarContent>
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
     </Navbar>
   );
 }

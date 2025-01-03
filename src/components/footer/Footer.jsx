@@ -2,10 +2,14 @@ import React from "react";
 import { TiPointOfInterest } from "react-icons/ti";
 import { FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import handleScrollToTop from "../../asset/scrolltop";
 
 const Footer = () => {
   const homeclick = useNavigate();
   const servicesclick = useNavigate();
+  const contactclick = useNavigate();
+
+  
 
   return (
     <footer className=" bg-background text-foreground py-8">
@@ -30,20 +34,24 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 cursor-pointer">
               <li>
-                <a
+                <p
                   onClick={() => {
                     homeclick("/home");
+                    handleScrollToTop();
                   }}
                   className="hover:underline transition"
                 >
                   About Us
-                </a>
+                </p>
               </li>
               <li>
-                <a onClick={()=>{servicesclick('/services')}} className="hover:underline transition">Services</a>
+                <p onClick={()=>{
+                  servicesclick('/services');
+                  handleScrollToTop();
+                  }} className="hover:underline transition">Services</p>
               </li>
               <li>
-                <a className="hover:underline transition">Contact</a>
+                <p onClick={()=>{contactclick('/contact');handleScrollToTop();}} className="hover:underline transition">Contact</p>
               </li>
             </ul>
           </div>
